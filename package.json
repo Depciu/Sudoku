@@ -25,5 +25,9 @@
     "style-loader": "^0.20.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "react-prop-types": "^0.4.0",
+    "sudoku-umd": "^1.0.1"
   }
 }

@@ -1,11 +1,12 @@
 import React from 'react';
 
-class Title extends React.Component {
-  render() {
-    return (
-      <p> Title</p>
-    );
-  }
+const Title = ({number}) => {
+  if(number === ".") {
+    number = '';
+   return (<input type="number" min="1" max="9" value={number}/>);
+ } else {
+   return (<input type="number" min="1" max="9" value={number}/>);
+ }
 }
 
-export default Title
+export default Title;
