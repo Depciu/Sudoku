@@ -2,11 +2,9 @@ import React from 'react';
 import Title from './Title.js';
 import sudoku from 'sudoku-umd';
 
-const Board = (stateSudoku) => {
-  let arrayBoard = stateSudoku.board.split("");
-  //console.log(arrayBoard);
-  let mapBoard = arrayBoard.map((number, index) => {
-      return  (<Title key={index} number={number} />);
+const Board = ({board, playerPick}) => {
+  let mapBoard = board.map((number, index) => {
+      return  (<Title key={index} number={number} playerPick={(playerValue) => playerPick(index, playerValue)} />);
   });
   return (<div>{mapBoard}</div>);
 }

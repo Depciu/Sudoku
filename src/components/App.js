@@ -6,10 +6,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialBoard: '672819345193..4862485..3197824137659761945283359...714.38..1426.174.6.38.463...71',
-      board: '672819345193..4862485..3197824137659761945283359...714.38..1426.174.6.38.463...71'
+      initialBoard: '',
+      board: ''
     };
     this.newGame = this.newGame.bind(this);
+    this.restartGame = this.restartGame.bind(this);
   }
 
   newGame() {
@@ -20,17 +21,31 @@ class App extends React.Component {
     });
   }
 
+  restartGame() {
+    var restartNumber = this.state.initialBoard
+    this.setState ({
+      board: restartNumber
+    })
+  }
+
+  playerPick(index, value) {
+    let board = this.state.board.slice(0, index) + value + this.state.board.slice(index + 1);
+    
+    this.setState({board});
+  }
+
   render() {
     return (
       <div className='app'>
         <h1>Sudoku</h1>
-        <Board initialBoard={this.state.initialBoard} board={this.state.board}>
-        </Board>
+        <Board 
+          board={this.state.board.split('')}
+          playerPick={this.playerPick.bind(this)} />
         <div className="buttons">
           <button>Check</button>
           <button onClick={this.newGame}>New Game</button>
           <button>Solve</button>
-          <button>Restart</button>
+          <button onClick={this.restartGame}>Restart</button>
         </div>
       </div>
     );
