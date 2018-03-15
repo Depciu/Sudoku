@@ -46,7 +46,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='app'>
+      <div className="app">
         <h1>Sudoku</h1>
         <Board 
           board={this.state.board.split('')}
