@@ -1,0 +1,93 @@
+body {
+    background-color: #bdc3c7;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 490px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border-style: none;
+    margin: 15px;
+    background-color: #3498db;
+    font-size: 15px;
+    color: #ecf0f1;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+input {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #40739e;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input:hover {
+    border-color: #ff0000;
+}
+
+/* border left board  */
+
+input:nth-child(9n + 1) {
+    border-left: 2px solid #2f3640;
+}
+
+/* border right board */
+
+input:nth-child(9n + 0) {
+    border-right: 2px solid #2f3640;
+}
+
+/* border top board */
+
+input:nth-child(-n + 9) {
+    border-top: 2px solid #2f3640;
+}
+
+/* border bottom board  */
+
+input:nth-child(n + 73) {
+    border-bottom: 2px solid #2f3640;
+}
+
+/* create squers */
+
+input:nth-child(27n + 1),
+input:nth-child(27n + 2),
+input:nth-child(27n + 3),
+input:nth-child(27n + 4),
+input:nth-child(27n + 5),
+input:nth-child(27n + 6),
+input:nth-child(27n + 7),
+input:nth-child(27n + 8),
+input:nth-child(27n + 9) 
+{
+    border-top: 2px solid #2f3640;
+}
+
+input:nth-child(3n + 3) {
+    border-right: 2px solid #2f3640;    
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}

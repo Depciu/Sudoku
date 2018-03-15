@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from './Board.js';
 import sudoku from 'sudoku-umd';
+import styles from './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,6 +34,8 @@ class App extends React.Component {
     const sCheck = sudoku.solve(this.state.board);
     if (sCheck === false) {
       alert('Nieprawidłowe rozwiązanie');
+    } else if (this.state.board === this.state.initialBoard) {
+      alert('Nieprawidłowe rozwiązanie');
     } else {
       alert('Gratulacje! Jesteś na dobrej drodze');
     }
@@ -54,7 +57,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className={styles.wrapper}>
         <h1>Sudoku</h1>
         <Board 
           board={this.state.board.split('')}
