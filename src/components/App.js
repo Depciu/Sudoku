@@ -11,10 +11,11 @@ class App extends React.Component {
     };
     this.newGame = this.newGame.bind(this);
     this.restartGame = this.restartGame.bind(this);
+    this.sudokuCheck = this.sudokuCheck.bind(this);
   }
 
   newGame() {
-    var numbers = sudoku.generate("easy", false);
+    const numbers = sudoku.generate("easy", false);
     this.setState({
       initialBoard: numbers,
       board: numbers
@@ -22,10 +23,19 @@ class App extends React.Component {
   }
 
   restartGame() {
-    var restartNumber = this.state.initialBoard
+    const restartNumber = this.state.initialBoard;
     this.setState ({
       board: restartNumber
     })
+  }
+
+  sudokuCheck() {
+    const sCheck = sudoku.solve(this.state.board);
+    if (sCheck === false) {
+      alert('Nieprawidłowe rozwiązanie');
+    } else {
+      alert('Gratulacje! Udało Ci się rozwiązać sudoku');
+    }
   }
 
   playerPick(index, value) {
@@ -42,7 +52,7 @@ class App extends React.Component {
           board={this.state.board.split('')}
           playerPick={this.playerPick.bind(this)} />
         <div className="buttons">
-          <button>Check</button>
+          <button onClick={this.sudokuCheck}>Check</button>
           <button onClick={this.newGame}>New Game</button>
           <button>Solve</button>
           <button onClick={this.restartGame}>Restart</button>
