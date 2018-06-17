@@ -33,9 +33,11 @@ class App extends React.Component {
   sudokuCheck() {
     const sCheck = sudoku.solve(this.state.board);
     if (sCheck === false) {
-      alert('Nieprawidłowe rozwiązanie');
+      alert('Nieprawidłowe rozwiązanie!');
     } else if (this.state.board === this.state.initialBoard) {
-      alert('Nieprawidłowe rozwiązanie');
+      alert('Nieprawidłowe rozwiązanie!');
+    } else if (sCheck === this.state.board) {
+      alert('Gratulacje! rozwiązałeś sudoku!');
     } else {
       alert('Gratulacje! Jesteś na dobrej drodze');
     }
@@ -59,7 +61,7 @@ class App extends React.Component {
     return (
       <div className={styles.wrapper}>
         <h1>Sudoku</h1>
-        <Board 
+        <Board
           board={this.state.board.split('')}
           playerPick={this.playerPick.bind(this)} />
         <div className="buttons">

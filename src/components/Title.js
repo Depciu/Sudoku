@@ -5,7 +5,7 @@ const Title = ({number, playerPick}) => {
     number = '';
   } 
    
-  return <input type="number" min="1" max="9" value={number} onChange={(e) => playerPick(e.target.value)} />;
+  return <input onKeyDown={event => event.preventDefault()} type="number" min="1" max="9" value={number} onChange={(e) => playerPick(e.target.value)} />;
 }
 
 export default Title;
